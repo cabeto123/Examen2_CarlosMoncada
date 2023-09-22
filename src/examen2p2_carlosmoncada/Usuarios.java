@@ -4,11 +4,13 @@
  */
 package examen2p2_carlosmoncada;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Em
  */
-public class Usuarios {
+public class Usuarios implements Serializable{
     String username;
     String contraseña;
     int edad;
@@ -44,6 +46,11 @@ public class Usuarios {
 
     public void setEdad(int edad) {
         this.edad = edad;
+    }
+
+    @Override
+    public String toString() {
+        return  username ;
     }
     
    }

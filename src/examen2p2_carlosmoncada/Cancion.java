@@ -11,6 +11,14 @@ package examen2p2_carlosmoncada;
 public class Cancion {
     String titulo;
     int tiempoduracion;
-    String singlequepertenece;
+    Lanzamiento referencia;
+
+    public Cancion(String titulo, int tiempoduracion, Lanzamiento referencia) {
+        this.titulo = titulo;
+        this.tiempoduracion = tiempoduracion;
+        this.referencia = referencia;
+    }
+
+    
     
 }
