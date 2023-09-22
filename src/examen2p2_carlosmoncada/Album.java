@@ -5,6 +5,7 @@
 package examen2p2_carlosmoncada;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  *
@@ -13,5 +14,11 @@ import java.util.ArrayList;
 public class Album extends Lanzamiento {
     ArrayList<Cancion> cancionespertenecientesalmismo= new ArrayList();
     int cantcanciones;
+  
+    public Album(int cantcanciones, String titulodepublicacion, String fechalanzamiento, int conteolikes) {
+        super(titulodepublicacion, fechalanzamiento, conteolikes);
+        this.cantcanciones = cantcanciones;
+    }
+    
     
 }

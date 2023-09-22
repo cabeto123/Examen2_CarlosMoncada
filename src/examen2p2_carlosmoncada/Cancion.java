@@ -11,12 +11,41 @@ package examen2p2_carlosmoncada;
 public class Cancion {
     String titulo;
     int tiempoduracion;
-    Lanzamiento referencia;
+    String referencia;
 
-    public Cancion(String titulo, int tiempoduracion, Lanzamiento referencia) {
+    public Cancion(String titulo, int tiempoduracion, String referencia) {
         this.titulo = titulo;
         this.tiempoduracion = tiempoduracion;
         this.referencia = referencia;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public int getTiempoduracion() {
+        return tiempoduracion;
+    }
+
+    public void setTiempoduracion(int tiempoduracion) {
+        this.tiempoduracion = tiempoduracion;
+    }
+
+    public String getReferencia() {
+        return referencia;
+    }
+
+    public void setReferencia(String referencia) {
+        this.referencia = referencia;
+    }
+
+    @Override
+    public String toString() {
+        return  titulo ;
     }
 
     

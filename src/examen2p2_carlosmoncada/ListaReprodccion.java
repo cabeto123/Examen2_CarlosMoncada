@@ -14,4 +14,10 @@ public class ListaReprodccion {
     int likes;
     String nombre;
     ArrayList<Cancion> cancionesquecontiene = new ArrayList();
+
+    public ListaReprodccion(int likes, String nombre) {
+        this.likes = likes;
+        this.nombre = nombre;
+    }
+    
 }

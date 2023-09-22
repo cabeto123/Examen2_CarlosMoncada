@@ -12,7 +12,13 @@ import java.util.Date;
  */
 public class Lanzamiento {
     String titulodepublicacion;
-    Date fechalanzamiento;
+    String fechalanzamiento;
     int conteolikes;
+
+    public Lanzamiento(String titulodepublicacion, String fechalanzamiento, int conteolikes) {
+        this.titulodepublicacion = titulodepublicacion;
+        this.fechalanzamiento = fechalanzamiento;
+        this.conteolikes = conteolikes;
+    }
     
 }

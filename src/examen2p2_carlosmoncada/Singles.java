@@ -4,11 +4,18 @@
  */
 package examen2p2_carlosmoncada;
 
+import java.util.Date;
+
 /**
  *
  * @author Em
  */
 public class Singles extends Lanzamiento {
     Cancion cancionquevaadentro;
+
+    public Singles(Cancion cancionquevaadentro, String titulodepublicacion, String fechalanzamiento, int conteolikes) {
+        super(titulodepublicacion, fechalanzamiento, conteolikes);
+        this.cancionquevaadentro = cancionquevaadentro;
+    }
     
 }

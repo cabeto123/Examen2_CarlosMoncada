@@ -271,7 +271,7 @@ public class Login extends javax.swing.JFrame {
                         fws.close();
                         JOptionPane.showMessageDialog(null, "Usuario creado");
                         jDialog1.dispose();
-                    }else{
+                    } else {
                         JOptionPane.showMessageDialog(null, "Edad incorrecta");
                     }
 
@@ -279,7 +279,6 @@ public class Login extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Usuario repetido");
 
                 }
-                
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -329,8 +328,8 @@ public class Login extends javax.swing.JFrame {
                         fws.close();
                         JOptionPane.showMessageDialog(null, "Usuario creado");
                         jDialog1.dispose();
-                    }else{
-                            JOptionPane.showMessageDialog(null, "Edad incorrecta");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Edad incorrecta");
                     }
 
                 } else {
@@ -366,22 +365,30 @@ public class Login extends javax.swing.JFrame {
             }
             int contusername = 0;
             int contcontraseña = 0;
-
+            int indice = 0;
             for (int i = 0; i < usuarios.size(); i++) {
                 if (usuario.equalsIgnoreCase(usuarios.get(i).getUsername())) {
                     contusername++;
+                    indice = i;
                 }
                 if (contraseña.equalsIgnoreCase(usuarios.get(i).getContraseña())) {
                     contcontraseña++;
                 }
             }
-            System.out.println(usuarios);
+
             if (contusername > 0 && contcontraseña > 0) {
-                
-                Pantalla p = new Pantalla();
-                p.setLocationRelativeTo(null);
-                p.setBounds(new Rectangle(1000, 900));
-                p.setVisible(true);
+                if (usuarios.get(indice) instanceof Cliente) {
+                    Pantalla p = new Pantalla();
+                    p.setLocationRelativeTo(null);
+                    p.setBounds(new Rectangle(1000, 900));
+                    p.setVisible(true);
+                } else {
+                    Artistass s = new Artistass();
+                    s.setLocationRelativeTo(null);
+                    s.setBounds(new Rectangle(1000, 900));
+                    s.setVisible(true);
+                }
+
             } else {
                 JOptionPane.showMessageDialog(null, "Usuario incorrecto");
             }
