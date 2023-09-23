@@ -393,31 +393,30 @@ public class Artistass extends javax.swing.JFrame {
         try {
             FileWriter fw = new FileWriter("./lanzamientos.txt");
             BufferedWriter bw = new BufferedWriter(fw);
-            if (empezado2==true) {
-            String salida =   titulodepublicacionsilla + "," + fechilla + ",0," + cantcanciones + ",";
-            for (int i = 0; i < auxa.size(); i++) {
-                salida += auxa.get(i).getTitulo() + "." + auxa.get(i).getTiempoduracion() + ";";
+            if (empezado2 == true) {
+                String salida = titulodepublicacionsilla + "," + fechilla + ",0," + cantcanciones + ",";
+                for (int i = 0; i < auxa.size(); i++) {
+                    salida += auxa.get(i).getTitulo() + "." + auxa.get(i).getTiempoduracion() + ";";
+                }
+                salida += "!\n";
+                bw.write(salida);
+                bw.flush();
+                bw.close();
+                fw.close();
+                empezado2 = false;
+            } else {
+                String salida = "!" + titulodepublicacionsilla + "," + fechilla + ",0," + cantcanciones + ",";
+                for (int i = 0; i < auxa.size(); i++) {
+                    salida += auxa.get(i).getTitulo() + "." + auxa.get(i).getTiempoduracion() + ";";
+                }
+                salida += "!\n";
+                bw.write(salida);
+                bw.flush();
+                bw.close();
+                fw.close();
+
             }
-            salida += "!\n";
-            bw.write(salida);
-            bw.flush();
-            bw.close();
-            fw.close();
-            empezado2=false;
-            }else{
-            String salida = "!" + titulodepublicacionsilla + "," + fechilla + ",0," + cantcanciones + ",";
-            for (int i = 0; i < auxa.size(); i++) {
-                salida += auxa.get(i).getTitulo() + "." + auxa.get(i).getTiempoduracion() + ";";
-            }
-            salida += "!\n";
-            bw.write(salida);
-            bw.flush();
-            bw.close();
-            fw.close();
-            
-            
-            }
-            
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -490,7 +489,7 @@ public class Artistass extends javax.swing.JFrame {
                 String aux = leedor.nextLine();
 
                 String[] splitter = aux.split("[!]");
-                for (int i = 1; i < splitter.length; i++) {
+                for (int i = 0; i < splitter.length; i++) {
                     String auxillo = splitter[i];
 
                     String[] segundosplitter = auxillo.split("[,]");
@@ -498,21 +497,27 @@ public class Artistass extends javax.swing.JFrame {
                     DefaultMutableTreeNode titulo = new DefaultMutableTreeNode(segundosplitter[0]);
                     raiz.add(titulo);
 
-                    String[] tercersplitter = splitter[4].split(";");
+                    String[] tercersplitter = segundosplitter[4].split(";");
                     String salida = "";
                     for (int j = 0; j < tercersplitter.length; j++) {
-                        String cancion = tercersplitter[i];
+                        String cancion = tercersplitter[j];
+                       
                         for (int k = 0; k < cancion.length(); k++) {
                             char letra = cancion.charAt(k);
                             if (letra == '.') {
                                 sale = true;
+                             k=2300;
                             }
                             if (sale == false) {
                                 salida += letra;
                             }
+                            
                         }
                         DefaultMutableTreeNode cancionsilla = new DefaultMutableTreeNode(salida);
-                        raiz.add(cancionsilla);
+                            titulo.add(cancionsilla);
+                            salida = "";
+                        sale=false;
+
                     }
 
                 }
@@ -560,7 +565,7 @@ public class Artistass extends javax.swing.JFrame {
             }
         });
     }
-    boolean empezado2=true;
+    boolean empezado2 = true;
     ArrayList<Cancion> aux = new ArrayList();
     String fechilla;
     String titulodepublicacionsilla;
