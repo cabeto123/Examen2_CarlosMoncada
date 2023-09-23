@@ -5,9 +5,13 @@
 package examen2p2_carlosmoncada;
 
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Scanner;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
 
 /**
  *
@@ -39,6 +43,13 @@ public class Artistass extends javax.swing.JFrame {
         txt_tiempo1 = new javax.swing.JTextField();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
+        jDialog2 = new javax.swing.JDialog();
+        jPanel6 = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        txt_titulo2 = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        txt_tiempo2 = new javax.swing.JTextField();
+        jButton7 = new javax.swing.JButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
@@ -47,8 +58,9 @@ public class Artistass extends javax.swing.JFrame {
         txt_fechadelanzamiento = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
-        txt_nombrelistarep = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTree1 = new javax.swing.JTree();
+        jButton1 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         txt_titulodepublicacionsingle = new javax.swing.JTextField();
@@ -137,6 +149,76 @@ public class Artistass extends javax.swing.JFrame {
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
 
+        jLabel11.setText("Titulo");
+
+        jLabel12.setText("Tiempo de duracion en segundos");
+
+        jButton7.setText("Finalizar");
+        jButton7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton7MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addComponent(jLabel11)
+                                .addGap(18, 18, 18)
+                                .addComponent(txt_titulo2, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addComponent(jLabel12)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txt_tiempo2, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(208, 208, 208)
+                        .addComponent(jButton7)))
+                .addContainerGap(266, Short.MAX_VALUE))
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(txt_titulo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(txt_tiempo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 179, Short.MAX_VALUE)
+                .addComponent(jButton7)
+                .addGap(82, 82, 82))
+        );
+
+        javax.swing.GroupLayout jDialog2Layout = new javax.swing.GroupLayout(jDialog2.getContentPane());
+        jDialog2.getContentPane().setLayout(jDialog2Layout);
+        jDialog2Layout.setHorizontalGroup(
+            jDialog2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 546, Short.MAX_VALUE)
+            .addGroup(jDialog2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jDialog2Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        jDialog2Layout.setVerticalGroup(
+            jDialog2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 361, Short.MAX_VALUE)
+            .addGroup(jDialog2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jDialog2Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel4.setText("Titulo de publicacion");
@@ -196,32 +278,39 @@ public class Artistass extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Crear Album", jPanel2);
 
-        jLabel6.setText("Nombre");
+        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Raiz");
+        jTree1.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jScrollPane1.setViewportView(jTree1);
 
-        txt_nombrelistarep.setText("jTextField1");
+        jButton1.setText("Cargar Arbol");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addComponent(jLabel6)
-                .addGap(18, 18, 18)
-                .addComponent(txt_nombrelistarep, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(311, Short.MAX_VALUE))
+                .addGap(32, 32, 32)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38)
+                .addComponent(jButton1)
+                .addContainerGap(137, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(txt_nombrelistarep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(315, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Crear Lista de Reproduccion", jPanel3);
+        jTabbedPane1.addTab("Crear Arbol", jPanel3);
 
         jLabel7.setText("Titulo de publicacion");
 
@@ -290,24 +379,6 @@ public class Artistass extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txt_fechadelanzamientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_fechadelanzamientoActionPerformed
-
-    }//GEN-LAST:event_txt_fechadelanzamientoActionPerformed
-
-    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
-        titulodepublicacionsilla = txt_titulodepublicacion.getText();
-        referencia = titulodepublicacionsilla;
-        fechilla = txt_fechadelanzamiento.getText();
-        jDialog1.pack();
-        jDialog1.setVisible(true);
-
-    }//GEN-LAST:event_jButton3MouseClicked
-
-    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-
-
-    }//GEN-LAST:event_jButton2MouseClicked
-
     private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
 
         auxa.add(new Cancion(txt_titulo1.getText(), Integer.parseInt(txt_tiempo1.getText()), referencia));
@@ -317,19 +388,36 @@ public class Artistass extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4MouseClicked
 
     private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
-        int cantcanciones = aux.size();
+        int cantcanciones = auxa.size();
+
         try {
             FileWriter fw = new FileWriter("./lanzamientos.txt");
             BufferedWriter bw = new BufferedWriter(fw);
-            String salida = ")" + titulodepublicacionsilla + "," + fechilla + ",0," + cantcanciones + ",";
+            if (empezado2==true) {
+            String salida =   titulodepublicacionsilla + "," + fechilla + ",0," + cantcanciones + ",";
             for (int i = 0; i < auxa.size(); i++) {
-                salida += auxa.get(i) + "." + auxa.get(i).getTiempoduracion() + ";";
+                salida += auxa.get(i).getTitulo() + "." + auxa.get(i).getTiempoduracion() + ";";
             }
-            salida += ")";
+            salida += "!\n";
             bw.write(salida);
             bw.flush();
             bw.close();
             fw.close();
+            empezado2=false;
+            }else{
+            String salida = "!" + titulodepublicacionsilla + "," + fechilla + ",0," + cantcanciones + ",";
+            for (int i = 0; i < auxa.size(); i++) {
+                salida += auxa.get(i).getTitulo() + "." + auxa.get(i).getTiempoduracion() + ";";
+            }
+            salida += "!\n";
+            bw.write(salida);
+            bw.flush();
+            bw.close();
+            fw.close();
+            
+            
+            }
+            
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -340,6 +428,103 @@ public class Artistass extends javax.swing.JFrame {
         jDialog1.setVisible(false);
 
     }//GEN-LAST:event_jButton5MouseClicked
+
+    private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
+        String titulocancion = txt_titulo2.getText();
+        int tiempodeduracion = Integer.parseInt(txt_tiempo2.getText());
+        String titulosingle = txt_titulodepublicacionsingle.getText();
+        String fechadelanzamiento = txt_fechadelanzamientosingle.getText();
+        String salida = "";
+        if (empezado == true) {
+            salida += titulosingle + "," + fechadelanzamiento + ",0," + titulocancion + "." + tiempodeduracion + "!\n";
+            empezado = false;
+        } else {
+            salida += "!" + titulosingle + "," + fechadelanzamiento + ",0," + titulocancion + "." + tiempodeduracion + "!\n";
+
+        }
+
+        try {
+            FileWriter fw = new FileWriter("./lanzamientos.txt", true);
+            BufferedWriter bw = new BufferedWriter(fw);
+            bw.write(salida);
+            bw.flush();
+            bw.close();
+            fw.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        jDialog2.setVisible(false);
+        txt_titulodepublicacionsingle.setText("");
+        txt_fechadelanzamientosingle.setText("");
+
+    }//GEN-LAST:event_jButton7MouseClicked
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        titulodepublicacionsilla = txt_titulodepublicacionsingle.getText();
+        referencia = titulodepublicacionsilla;
+        fechilla = txt_fechadelanzamientosingle.getText();
+        jDialog1.pack();
+        jDialog1.setVisible(true);
+    }//GEN-LAST:event_jButton2MouseClicked
+
+    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+        titulodepublicacionsilla = txt_titulodepublicacion.getText();
+        referencia = titulodepublicacionsilla;
+        fechilla = txt_fechadelanzamiento.getText();
+        jDialog1.pack();
+        jDialog1.setVisible(true);
+    }//GEN-LAST:event_jButton3MouseClicked
+
+    private void txt_fechadelanzamientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_fechadelanzamientoActionPerformed
+
+    }//GEN-LAST:event_txt_fechadelanzamientoActionPerformed
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        DefaultTreeModel modelotabla = (DefaultTreeModel) jTree1.getModel();
+        DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modelotabla.getRoot();
+        try {
+            File archivo = new File("./lanzamientos.txt");
+            Scanner leedor = new Scanner(archivo);
+            boolean sale = false;
+            while (leedor.hasNextLine()) {
+                String aux = leedor.nextLine();
+
+                String[] splitter = aux.split("[!]");
+                for (int i = 1; i < splitter.length; i++) {
+                    String auxillo = splitter[i];
+
+                    String[] segundosplitter = auxillo.split("[,]");
+
+                    DefaultMutableTreeNode titulo = new DefaultMutableTreeNode(segundosplitter[0]);
+                    raiz.add(titulo);
+
+                    String[] tercersplitter = splitter[4].split(";");
+                    String salida = "";
+                    for (int j = 0; j < tercersplitter.length; j++) {
+                        String cancion = tercersplitter[i];
+                        for (int k = 0; k < cancion.length(); k++) {
+                            char letra = cancion.charAt(k);
+                            if (letra == '.') {
+                                sale = true;
+                            }
+                            if (sale == false) {
+                                salida += letra;
+                            }
+                        }
+                        DefaultMutableTreeNode cancionsilla = new DefaultMutableTreeNode(salida);
+                        raiz.add(cancionsilla);
+                    }
+
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        modelotabla.reload();
+
+
+    }//GEN-LAST:event_jButton1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -375,21 +560,27 @@ public class Artistass extends javax.swing.JFrame {
             }
         });
     }
+    boolean empezado2=true;
     ArrayList<Cancion> aux = new ArrayList();
     String fechilla;
     String titulodepublicacionsilla;
     ArrayList<Cancion> auxa = new ArrayList();
     String referencia;
+    boolean empezado = true;
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton7;
     private javax.swing.JDialog jDialog1;
+    private javax.swing.JDialog jDialog2;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -397,12 +588,16 @@ public class Artistass extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTree jTree1;
     private javax.swing.JTextField txt_fechadelanzamiento;
     private javax.swing.JTextField txt_fechadelanzamientosingle;
-    private javax.swing.JTextField txt_nombrelistarep;
     private javax.swing.JTextField txt_tiempo1;
+    private javax.swing.JTextField txt_tiempo2;
     private javax.swing.JTextField txt_titulo1;
+    private javax.swing.JTextField txt_titulo2;
     private javax.swing.JTextField txt_titulodepublicacion;
     private javax.swing.JTextField txt_titulodepublicacionsingle;
     // End of variables declaration//GEN-END:variables
