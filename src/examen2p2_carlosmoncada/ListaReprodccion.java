@@ -19,5 +19,34 @@ public class ListaReprodccion {
         this.likes = likes;
         this.nombre = nombre;
     }
+
+    public int getLikes() {
+        return likes;
+    }
+
+    public void setLikes(int likes) {
+        this.likes = likes;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public ArrayList<Cancion> getCancionesquecontiene() {
+        return cancionesquecontiene;
+    }
+
+    public void setCancionesquecontiene(ArrayList<Cancion> cancionesquecontiene) {
+        this.cancionesquecontiene = cancionesquecontiene;
+    }
+
+    @Override
+    public String toString() {
+        return  nombre ;
+    }
     
 }
