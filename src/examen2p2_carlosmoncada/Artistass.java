@@ -391,7 +391,7 @@ public class Artistass extends javax.swing.JFrame {
         int cantcanciones = auxa.size();
 
         try {
-            FileWriter fw = new FileWriter("./lanzamientos.txt");
+            FileWriter fw = new FileWriter("./lanzamientos.txt",true);
             BufferedWriter bw = new BufferedWriter(fw);
             if (empezado2 == true) {
                 String salida = titulodepublicacionsilla + "," + fechilla + ",0," + cantcanciones + ",";
@@ -462,8 +462,8 @@ public class Artistass extends javax.swing.JFrame {
         titulodepublicacionsilla = txt_titulodepublicacionsingle.getText();
         referencia = titulodepublicacionsilla;
         fechilla = txt_fechadelanzamientosingle.getText();
-        jDialog1.pack();
-        jDialog1.setVisible(true);
+        jDialog2.pack();
+        jDialog2.setVisible(true);
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
